@@ -57,3 +57,12 @@ Node module, dotenv is used to use .env file.
 - `POST /register` : requests register by putting `{ nickName, email, password }` on the request body. Success returns json with code 200.
 - `POST /login` : requests json web token by putting `{ email, password }` on the request body. Success returns json including token and userdata with code 200.
 - `GET /data` : reqeusts decoding the token by putting token on the authorization section of the request header. Success returns json with decoded token's payload.
+
+## Front-end: React
+
+### Stack
+
+- React
+
+### Routes
+

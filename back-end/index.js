@@ -18,7 +18,7 @@ dotenv.config();
 // Middlewares / Other requires
 const connectToMongoDB = require('./schemas');
 
-const userRouter = require('./routes/api/user');
+const apiRouter = require('./routes/api');
 
 // App, passport configuration, mongoDB connection
 const app = express();
@@ -29,12 +29,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-
-
 // Routers
-
-/// Routers - /api
-app.use('/api/user', userRouter);
+app.use('/api', apiRouter);
 
 app.get('/', (req, res) => {
   res.send('hello world!');

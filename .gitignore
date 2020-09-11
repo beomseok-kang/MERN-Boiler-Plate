@@ -4,3 +4,6 @@
 dev.js
 
 .env
+
+/front-end/node_modules
+/front-end/build

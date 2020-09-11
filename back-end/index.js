@@ -11,7 +11,6 @@
 // Packages and Modules require
 const express = require('express');
 const dotenv = require('dotenv');
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 dotenv.config();
@@ -21,22 +20,35 @@ const connectToMongoDB = require('./schemas');
 
 const userRouter = require('./routes/api/user');
 
-// App and Mongo DB Connection
+// App, passport configuration, mongoDB connection
 const app = express();
 connectToMongoDB();
 
 // Middlewares run
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(cookieParser(process.env.COOKIE_SECRET));
+
+
 
 // Routers
 
 /// Routers - /api
-app.use('/api/users', userRouter);
+app.use('/api/user', userRouter);
 
 app.get('/', (req, res) => {
   res.send('hello world!');
 });
+
+// Error Handler
+app.use((err, req, res, next) => {
+  res.locals.message = err.message;
+  res.locals.error = process.env.NODE_ENV === 'production' ? {} : err;
+  res.status(err.status || 500);
+  res.json({
+    message: 'An error has occurred.',
+    error: err
+  });
+})
 
 app.listen(5000);

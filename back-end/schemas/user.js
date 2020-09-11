@@ -24,12 +24,6 @@ const userSchema = new Schema({
     type: Number,
     default: 0 // 0 = normal, 1 = admin
   },
-  token: {
-    type: String
-  },
-  tokenExp: {
-    type: Number
-  }
 });
 
 const User = mongoose.model('User', userSchema);

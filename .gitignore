@@ -7,3 +7,5 @@ dev.js
 
 /front-end/node_modules
 /front-end/build
+
+dev.ts

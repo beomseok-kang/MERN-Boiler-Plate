@@ -43,7 +43,7 @@ router.post('/login', isNotLoggedIn, async (req, res) => {
         email: user.email
       }, process.env.JWT_SECRET, {
         // 7 days to expire
-        expiresIn: '7d',
+        expiresIn: '1d',
         issuer: tokenIssuer
       });
       return res.json({

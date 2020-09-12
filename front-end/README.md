@@ -2,7 +2,10 @@
 
 ## Stack
 
-- React
+- React & Typescript
+- Styled-Components
+- Axios
+- 
 
 ## Routes
 

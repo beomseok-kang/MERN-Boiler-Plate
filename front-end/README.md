@@ -3,9 +3,11 @@
 ## Stack
 
 - React & Typescript
+- Redux & Typescript
+- Redux-saga
+- React-router
 - Styled-Components
 - Axios
-- 
 
 ## Routes
 

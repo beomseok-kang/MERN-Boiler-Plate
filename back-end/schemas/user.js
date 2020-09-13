@@ -5,7 +5,8 @@ const { Schema } = mongoose;
 const userSchema = new Schema({
   nickName: {
     type: String,
-    maxlength: 12,
+    minlength: 3,
+    maxlength: 20,
     required: true
   },
   email: {
@@ -16,8 +17,7 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
-    required: true,
-    minlength: 5
+    required: true
   },
   // admin / normal user
   role: {

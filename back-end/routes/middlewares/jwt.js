@@ -17,11 +17,13 @@ const verifyToken = (req, res, next) => {
     if (err.name === 'TokenExpiredError') {
       return res.status(419).json({
         code: 419,
+        tokenData: null,
         message: 'The token has expired.'
       });
     } 
     return res.status(401).json({
       code: 401,
+      tokenData: null,
       message: 'Invalid token.'
     });
   }

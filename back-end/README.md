@@ -55,3 +55,19 @@ Node module, dotenv is used to use .env file.
 - `POST /register` : requests register by putting `{ nickName, email, password }` on the request body. Success returns json with code 200.
 - `POST /login` : requests json web token by putting `{ email, password }` on the request body. Success returns json including token and userdata with code 200.
 - `GET /data` : reqeusts decoding the token by putting token on the authorization section of the request header. Success returns json with decoded token's payload.
+
+## Status Codes
+
+### 200 ~ 299
+
+- 200: Successful, No Error.
+- 201: Register Successful.
+
+### 400 ~ 499
+
+- 400: General Error.
+- 401: Invalid Token.
+- 419: Token Expired.
+- 420: Signin - incorrect password.
+- 421: Signin - user does not exist.
+- 422: Register - user already exists.
